@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="App10.pages.Calculator"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout Padding="15" BackgroundColor="DarkRed">
+            <Frame
+                Margin="0,0,0,20"
+                Padding="15"
+                BackgroundColor="BlanchedAlmond">
+                <Label
+                    x:Name="outputBox"
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    HorizontalOptions="End"
+                    Text="0"
+                    TextColor="black" />
+            </Frame>
+            <!--  this decides how many rows the grid have and how many colums  -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <!--
+                    the buttons for the calculator
+                    using grids where x:name is the name of the element
+                    grid.row is wich row its part of and grid.colum wich column its on
+                    its alot like css text is what text there is on the element
+                    clicked connects to the mainpage.xaml.cs page witch the code that give the functions
+                    to the buttons padding is padding
+                -->
+                <!--  Grid row one  -->
+
+                <!--  Button for the MOD function  -->
+                <Button
+                    x:Name="BtnMOD"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="CommonOperation_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="MOD"
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the Log function  -->
+                <Button
+                    x:Name="BtnLog"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="LogBtn"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="Log"
+                    TextColor="#F3F3F3"
+                    TextTransform="None" />
+                <!--  Button for the Square root function  -->
+                <Button
+                    x:Name="BtnSqrt"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Squaroot_Btn"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="√"
+                    TextColor="#F3F3F3"
+                    TextTransform="None" />
+                <!--  Button for the Fraction function  -->
+                <Button
+                    x:Name="BtnFraction"
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="FractionBtn"
+                    FontAttributes="bold"
+                    FontSize="Large"
+                    Text="1/x"
+                    TextColor="#F3F3F3" />
+                <!--  Button for the Exponential function  -->
+                <Button
+                    x:Name="ExpBtn"
+                    Grid.Row="0"
+                    Grid.Column="4"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="ExponetinalBtn"
+                    FontAttributes="bold"
+                    FontSize="Large"
+                    Text="EXP"
+                    TextColor="#F3F3F3" />
+                <!--  Grid row two  -->
+
+                <!--  Button for the SinH function  -->
+                <Button
+                    x:Name="BtnSinH"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="SinHBtn"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="SinH"
+                    TextColor="#F3F3F3"
+                    TextTransform="None" />
+
+                <!--  Button for the Sin function  -->
+                <Button
+                    x:Name="BtnSin"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="SinBtn"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="Sin"
+                    TextColor="#F3F3F3"
+                    TextTransform="None" />
+
+                <!--  Button for square function x^2  -->
+                <Button
+                    x:Name="Btnx2"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="SquareBtn"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="x^2"
+                    TextColor="#F3F3F3"
+                    TextTransform="None" />
+
+                <!--  Button for the Cube function x^3  -->
+                <Button
+                    x:Name="x3"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="CubeBtn"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="x^3"
+                    TextColor="#F3F3F3"
+                    TextTransform="None" />
+
+                <!--  Button for the power of fucntion function x^y  -->
+                <Button
+                    x:Name="Btnxy"
+                    Grid.Row="1"
+                    Grid.Column="4"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="CommonOperation_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="x^y"
+                    TextColor="#F3F3F3"
+                    TextTransform="None" />
+                <!--  Grid row three  -->
+
+                <!--  Button for the clear function  -->
+                <Button
+                    x:Name="BtnClear"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Clear_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="C"
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the operator 7 function  -->
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Number_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="7"
+                    TextColor="#F3F3F3" />
+                <!--  Button for the operator 8 function  -->
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Number_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="8"
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the operator 9 function  -->
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Number_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="9"
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the Divided operator  -->
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="4"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="CommonOperation_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="/"
+                    TextColor="#F3F3F3" />
+
+                <!--  grid Row four  -->
+                <!--  Text transform none removes the uppercase that android have as standard  -->
+
+                <!--  Button for the Delete function  -->
+                <Button
+                    x:Name="BtnX"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Del_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="Del"
+                    TextColor="#F3F3F3"
+                    TextTransform="None" />
+
+                <!--  Button for the operator 4 function  -->
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Number_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="4"
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the operator 5 function  -->
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Number_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="5"
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the operator 6 function  -->
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Number_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="6"
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the multiplie function  -->
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="4"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="CommonOperation_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="*"
+                    TextColor="#F3F3F3" />
+                <!--  grid Row five  -->
+
+                <!--  Button for the Percentage function  -->
+                <Button
+                    x:Name="BtnPercentage"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Percentage_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="%"
+                    TextColor="#F3F3F3" />
+                <!--  Button for the Operator 1 function  -->
+                <Button
+                    x:Name="BtnOne"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Number_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="1"
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the operator 2 function  -->
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Number_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="2"
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the operator 3 function  -->
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="3"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Number_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="3"
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the operaton minus function  -->
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="4"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="CommonOperation_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="-"
+                    TextColor="#F3F3F3" />
+
+                <!--  grid row six  -->
+
+                <!--  Button for the changing a number betwen negative and positive function  -->
+                <Button
+                    x:Name="BtnPlusMinus"
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="PlusMinus_Btn"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="±"
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the PI function  -->
+                <Button
+                    x:Name="BtnPi"
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="PiBtn"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="Pi"
+                    TextColor="#F3F3F3"
+                    TextTransform="None" />
+
+                <!--  Button for the point . operator function  -->
+                <Button
+                    Grid.Row="5"
+                    Grid.Column="3"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Number_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="."
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the operator 0 function  -->
+                <Button
+                    Grid.Row="5"
+                    Grid.Column="2"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Number_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="0"
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the operator plus function  -->
+                <Button
+                    Grid.Row="5"
+                    Grid.Column="4"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="CommonOperation_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="+"
+                    TextColor="#F3F3F3" />
+
+                <!--  grid row seven  -->
+
+                <!--  Button for the CosH function  -->
+                <Button
+                    x:Name="BtnCosh"
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="CoshHBtn"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="Cosh"
+                    TextColor="#F3F3F3"
+                    TextTransform="None" />
+
+                <!--  Button for the TanH function  -->
+                <Button
+                    x:Name="BtnTanH"
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="TanHBtn"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="TanH"
+                    TextColor="#F3F3F3"
+                    TextTransform="None" />
+
+                <!--  Button for the equal function  -->
+                <Button
+                    x:Name="BtnEqual"
+                    Grid.Row="6"
+                    Grid.Column="4"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="Equal_Clicked"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="="
+                    TextColor="#F3F3F3" />
+
+                <!--  Button for the Cos function  -->
+                <Button
+                    x:Name="BtnCos"
+                    Grid.Row="6"
+                    Grid.Column="2"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="CosBtn"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="Cos"
+                    TextColor="#F3F3F3"
+                    TextTransform="None" />
+
+                <!--  Button for the Tan function  -->
+                <Button
+                    x:Name="BtnTan"
+                    Grid.Row="6"
+                    Grid.Column="3"
+                    Padding="5"
+                    BackgroundColor="#0F0F0F"
+                    Clicked="TanBtn"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="Tan"
+                    TextColor="#F3F3F3"
+                    TextTransform="None" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

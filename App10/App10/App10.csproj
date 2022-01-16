@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+	<!--Images used for the dice roller by using propertes build actions and then 
+	changed them to embedded resources-->
+  <ItemGroup>
+    <None Remove="images\dice.png" />
+    <None Remove="images\dice1.jpg" />
+    <None Remove="images\dice2.jpg" />
+    <None Remove="images\dice3.jpg" />
+    <None Remove="images\dice4.jpg" />
+    <None Remove="images\dice5.jpg" />
+    <None Remove="images\dice6.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="images\dice.png" />
+    <EmbeddedResource Include="images\dice1.jpg" />
+    <EmbeddedResource Include="images\dice2.jpg" />
+    <EmbeddedResource Include="images\dice3.jpg" />
+    <EmbeddedResource Include="images\dice4.jpg" />
+    <EmbeddedResource Include="images\dice5.jpg" />
+    <EmbeddedResource Include="images\dice6.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="New_MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="pages\Calculator.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="pages\Dice.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

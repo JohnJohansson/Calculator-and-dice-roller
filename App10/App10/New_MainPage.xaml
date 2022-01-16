@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--  This is the new main page I created to be able to link to two other pages  -->
+<ContentPage
+    x:Class="App10.New_MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="black">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <!--  The buttons and thier style, they are leading to one new page each  -->
+
+            <!--  The button that leades to the calculator  -->
+            <Button
+                Margin="0,0,0,50"
+                Padding="25"
+                BackgroundColor="AntiqueWhite"
+                Clicked="Btn_Clicked1"
+                FontAttributes="Bold"
+                FontSize="20"
+                Text="Calculator"
+                TextColor="Black" />
+            <!--  The button that leades to the dice  -->
+            <Button
+                Padding="25"
+                BackgroundColor="AntiqueWhite"
+                Clicked="Btn_Clicked2"
+                FontAttributes="Bold"
+                FontSize="20"
+                Text="Dice roller"
+                TextColor="Black" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
